@@ -12,7 +12,7 @@ import (
 
 // schema_test.go
 type User struct {
-	Name string `geeorm:"PRIMARY KEY"`
+	Name string `GeeOrm:"PRIMARY KEY"`
 	Age  int
 }
 

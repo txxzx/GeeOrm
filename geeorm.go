@@ -1,7 +1,7 @@
 package GeeOrm
 
 /**
-    @date: 2022/10/30
+   @date: 2022/10/30
 **/
 
 import (
@@ -40,4 +40,11 @@ func NewEngine(driver, source string) (e *Engine, err error) {
 
 func (engine *Engine) NewSession() *session.Session {
 	return session.New(engine.db, engine.dialect)
+}
+
+func (engine *Engine) Close() {
+	if err := engine.db.Close(); err != nil {
+		log.Error("Failed to close database")
+	}
+	log.Info("Close database success")
 }
